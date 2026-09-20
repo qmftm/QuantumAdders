@@ -1,0 +1,6 @@
+name: QuantumAdders
+version: '${version}'
+
+main: me.qmftm.quantumAdders.QuantumAdders
+api-version: '26.3'
+load: POSTWORLD
