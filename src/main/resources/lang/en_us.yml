@@ -1,0 +1,61 @@
+# QuantumAdders English messages.
+# Values are MiniMessage; tags like <item> are placeholders and may be reordered or
+# dropped by a translation. <prefix> expands to the prefix value below.
+
+prefix: "<aqua>[QuantumAdders] </aqua>"
+
+command:
+  unknown-item: "<prefix><red>Unknown item '<item>'. Try /qa list."
+  give-success: "<prefix><white>Gave <amount>x <item> to <count> player(s)."
+  list-empty: "<prefix><white>No custom items are defined yet. See plugins/QuantumAdders/items/."
+  list-header: "<prefix><white><count> custom item(s):"
+  list-entry: "<white>  <item>  <dark_gray><base>"
+  list-blocks-header: "<prefix><white><count> custom block(s) <gray>(<used>/<capacity> note block states used, <free> free)"
+  list-block-entry: "<white>  <item>  <dark_gray><state>"
+  reload-done: "<prefix><white>Reloaded <count> item(s)."
+  reload-geyser-note: "<gray>Geyser keeps the item list it built at startup — restart the server to change what Bedrock players see."
+  pack-building: "<prefix><white>Building resource packs..."
+  pack-done: "<prefix><white>Built packs for <count> item(s)."
+  pack-path-java: "<gray>  Java:    <path>"
+  pack-path-bedrock: "<gray>  Bedrock: <path>"
+  pack-path-mappings: "<gray>  Mapping: <path>"
+  pack-missing-textures: "<yellow>Missing textures: <items>"
+  pack-installed: "<gray>Bedrock pack installed into Geyser. Restart the server to apply it."
+  pack-error: "<prefix><red><reason>"
+
+log:
+  items-loaded: "Loaded <count> custom item(s)."
+  geyser-absent: "Geyser does not run on this server. Java players are unaffected; for Bedrock, see the mappings note below."
+  geyser-subscribed: "Subscribed to Geyser's custom item registration."
+  geyser-registered: "Registered <count> custom item(s) with Geyser."
+  geyser-not-initialised: "Geyser is present but not initialised yet; Bedrock players will not see custom items."
+  geyser-hook-failed: "Could not hook into Geyser (<reason>); falling back to the generated mappings file."
+  geyser-item-rejected: "Geyser rejected item '<item>': <reason>"
+  geyser-unknown-category: "Item '<item>' has an unknown creative-category '<value>'; using ITEMS."
+  mappings-note: "Geyser is not running here, so items were not registered through its API. Copy <path> into the external Geyser's custom_mappings folder and the .mcpack into its packs folder, then restart Geyser."
+  pack-installed: "Installed the Bedrock pack into <path>."
+  missing-textures: "No texture found for: <items>. Add the PNGs to <path> and run /qa pack again."
+  pack-failed: "<what> failed: <reason>"
+  geyser-folder-missing: "Geyser pack folder not found; the .mcpack was not installed."
+  install-failed: "Could not install the .mcpack into Geyser: <reason>"
+  invalid-path: "'<value>' is not a usable path; writing to <path> instead."
+
+item:
+  no-items-section: "<file> has no 'items' section; skipping."
+  duplicate-id: "Item id '<item>' is in both <other> and <file>; using the one from <file>."
+  invalid-id: "<where>: id must be [a-z0-9_]; skipping."
+  missing-base: "<where>: missing 'base'; skipping."
+  invalid-base: "<where>: '<value>' is not a valid item; skipping."
+  invalid-stack-size: "<where>: max-stack-size must be 1-99; ignoring it."
+  invalid-namespace: "Namespace '<value>' is not [a-z0-9_]; falling back to 'quantumadders'."
+  example-failed: "Could not write the example item file: <reason>"
+  directory-failed: "Could not create <path>."
+  repeated-key: "Item id '<item>' is defined more than once in <file>. Only the last one survives — give them different ids."
+
+block:
+  blocks-loaded: "Loaded <count> custom block(s). (<used>/<capacity> note block states used)"
+  no-blocks-section: "<file> has no 'blocks' section; skipping."
+  duplicate-id: "Block id '<item>' in <file> clashes with another item or block; skipping."
+  pool-exhausted: "Out of note block states (<count>). Could not register block '<item>'."
+  states-save-failed: "Could not save block-states.yml: <reason>"
+  invalid-xp: "<where>: xp '<value>' is not a number or range; using 0."

@@ -2,5 +2,15 @@ name: QuantumAdders
 version: '${version}'
 
 main: me.qmftm.quantumAdders.QuantumAdders
-api-version: '26.3'
+api-version: '26.2'
 load: POSTWORLD
+authors: [qmftm]
+description: Custom items that work on both Java and Bedrock (Geyser) clients.
+
+softdepend: [Geyser-Spigot]
+loadbefore: [Geyser-Spigot]
+
+permissions:
+  quantumadders.admin:
+    description: Access to all QuantumAdders commands.
+    default: op

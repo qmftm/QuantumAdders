@@ -1,0 +1,80 @@
+# Custom blocks. Each one is a note block wearing a different face.
+# Drop the matching PNGs into plugins/QuantumAdders/textures/.
+#
+# HOW MANY: one note block state per block, so roughly 674 blocks in total
+# (27 instruments x 25 notes, minus the one left to ordinary note blocks). The
+# exact ceiling depends on the Minecraft version and is printed by /qa list.
+#
+# Each block silently takes one note block state, recorded in block-states.yml.
+# That file is what keeps blocks already built with from turning into something
+# else, so leave it alone unless you know what you are doing.
+#
+# Ids must be unique across items AND blocks — each block gets an item of the
+# same id so it can be held and placed.
+blocks:
+
+  # ---- 1. Every face the same ----------------------------------------------
+  ruby_block:
+    display-name: "<red>루비 블록"
+    lore:
+      - "<dark_gray>단단하게 뭉친 결정."
+    texture: ruby_block
+    # Mining time, roughly. Stone is 1.5, obsidian 50.
+    hardness: 3.0
+    # 0-15. Above 0 the block glows.
+    light-emission: 0
+    bedrock:
+      # none, construction, nature, equipment, items
+      creative-category: CONSTRUCTION
+      creative-group: ""
+
+  # ---- 2. Top / bottom / sides (a pillar) -----------------------------------
+  ruby_pillar:
+    display-name: "<red>루비 기둥"
+    textures:
+      top: ruby_pillar_top
+      bottom: ruby_pillar_top
+      # 'side' covers all four walls at once.
+      side: ruby_pillar_side
+    hardness: 3.0
+
+  # ---- 3. Every face different ---------------------------------------------
+  ruby_machine:
+    display-name: "<red>루비 기계"
+    textures:
+      # Narrowest wins: a named face beats 'side', which beats 'all'.
+      all: machine_side
+      up: machine_top
+      down: machine_bottom
+      north: machine_front
+    hardness: 4.0
+
+  # ---- Drop table and experience -------------------------------------------
+  ruby_ore:
+    display-name: "<red>루비 광석"
+    textures:
+      all: ruby_ore
+    hardness: 4.5
+
+    # Experience dropped when mined. A number, or "min-max" for a range.
+    # Silk touch suppresses it, as with vanilla ores.
+    xp: "2-5"
+
+    # Breaking with Silk Touch yields the block itself and no drops.
+    # Set false to run the drop table even with Silk Touch.
+    silk-touch-self: true
+
+    # Drops replace the block itself. Remove this whole section and the block
+    # simply drops one of itself.
+    drops:
+      # 'item' is a custom item id or a vanilla material name.
+      - item: ruby
+        # A number, or "min-max".
+        amount: "1-3"
+        # 0.0 - 1.0. Missing means always.
+        chance: 1.0
+        # Multiply the amount by the tool's Fortune level, like vanilla ores.
+        fortune: true
+      - item: COBBLESTONE
+        amount: 1
+        chance: 0.25

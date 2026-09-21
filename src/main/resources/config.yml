@@ -1,0 +1,49 @@
+# Message language. Files live in plugins/QuantumAdders/lang/.
+# Shipped: ko_kr, en_us. Copy one to add your own and name it here.
+language: ko_kr
+
+# The namespace every custom item lives under.
+# Java item model  -> <namespace>:<item id>
+# Bedrock icon key -> <namespace>_<item id>
+# Changing this after items exist invalidates already-issued items.
+namespace: quantumadders
+
+pack:
+  # Where the finished packs are written.
+  #   - a relative path resolves against this plugin's folder
+  #   - an absolute path is used as-is (e.g. C:/webserver/packs)
+  # Only the two finished archives are written there; nothing in that folder is
+  # deleted. Intermediate files always stay in plugins/QuantumAdders/cache/.
+  output: "output"
+
+  java:
+    description: "QuantumAdders custom items"
+    # Resource pack format for the server's Minecraft version (26.2 -> 88).
+    format: 88
+    # Overrides 'output' for the Java pack only. A value ending in .zip names the
+    # file; anything else is treated as a folder. Leave empty to use 'output'.
+    output: ""
+
+  bedrock:
+    description: "QuantumAdders custom items"
+    # Copy the generated .mcpack straight into Geyser's pack folder.
+    auto-install: true
+    # Overrides 'output' for the Bedrock pack only. A value ending in .mcpack names
+    # the file; anything else is treated as a folder. Leave empty to use 'output'.
+    output: ""
+
+# Rebuild both packs automatically on startup and on /qa reload.
+auto-build-packs: true
+
+geyser:
+  # Write a Geyser custom_mappings JSON alongside the packs.
+  # Geyser can only be driven through its API when it runs as a plugin on THIS server.
+  # When it runs externally (standalone, or on a proxy) that is impossible, and this
+  # file is what registers the items instead — copy it into the external Geyser's
+  # custom_mappings folder, together with the .mcpack, and restart Geyser.
+  # Harmless to leave on when Geyser is local; the file is simply unused.
+  write-mappings: true
+  # Where to write it. Empty = a co-installed Geyser's custom_mappings folder when one
+  # exists, otherwise <pack output>/custom_mappings/. A value ending in .json names the
+  # file; anything else is treated as a folder.
+  mappings-output: ""

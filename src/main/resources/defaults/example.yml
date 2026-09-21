@@ -1,0 +1,35 @@
+# Every file in plugins/QuantumAdders/items/ is loaded.
+# Drop the matching PNG into plugins/QuantumAdders/textures/.
+items:
+
+  ruby:
+    # Vanilla item the custom item is built on. Bedrock players receive this
+    # item too, so pick one that behaves the way you want.
+    base: PAPER
+    display-name: "<red>Ruby"
+    lore:
+      - "<dark_gray>A flawless crystal."
+    # plugins/QuantumAdders/textures/ruby.png
+    texture: ruby
+    max-stack-size: 64
+    bedrock:
+      # ALL, CONSTRUCTION, NATURE, EQUIPMENT, ITEMS, ITEM_COMMAND_ONLY, NONE
+      creative-category: ITEMS
+      creative-group: ""
+      display-handheld: false
+      allow-offhand: true
+      protection-value: 0
+
+  quantum_blade:
+    base: IRON_SWORD
+    display-name: "<gradient:#8be9fd:#bd93f9>Quantum Blade</gradient>"
+    lore:
+      - "<dark_gray>It cuts where it has not yet been."
+    texture: quantum_blade
+    # Parent model. Inferred from the base item when omitted: tools and weapons get
+    # minecraft:item/handheld, everything else minecraft:item/generated.
+    model-parent: minecraft:item/handheld
+    bedrock:
+      creative-category: EQUIPMENT
+      display-handheld: true
+      allow-offhand: false
